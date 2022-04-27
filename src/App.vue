@@ -1,26 +1,30 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <exchange-navbar />
+    <exchange-hero />
+    <exchange-list />
+    <exchange-pagination />
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import exchangeNavbar from "./components/exchangeNavbar.vue";
+import exchangeHero from "./components/exchangeHero.vue";
+import exchangeList from "./components/exchangeList.vue";
+import exchangePagination from "./components/exchangePagination.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    exchangeNavbar,
+    exchangeHero,
+    exchangeList,
+    exchangePagination,
+  },
+};
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="scss">
+@import "assets/styles/various.scss";
+@import "~bulma/bulma.sass";
+@import "assets/styles/main.scss";
 </style>
