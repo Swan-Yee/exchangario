@@ -1,7 +1,7 @@
 <template>
   <!-- NAVBAR -->
   <header class="header">
-    <nav class="navbar">
+    <nav class="navbar" :class="$route.path === '/' ? '' : 'with-background'">
       <div class="container">
         <div class="navbar-brand">
           <a
@@ -24,14 +24,14 @@
         <div id="navbar-menu" class="navbar-menu">
           <div class="navbar-end">
             <!-- Loop through the navigation items -->
-            <a
+            <router-link
               v-for="menu in navMenu"
               class="navbar-item nav-home"
-              href="#"
+              :to="menu.link"
               :key="menu.item"
             >
               {{ menu.item }}
-            </a>
+            </router-link>
           </div>
         </div>
       </div>
@@ -43,17 +43,15 @@
 <script>
 export default {
   name: "exchangeNavbar",
-  data() {
-    return {
-      navLogo: "Exchangario",
-      navMenu: [
-        { item: "Home" },
-        { item: "About" },
-        { item: "Faq" },
-        { item: "Login" },
-        { item: "Register" },
-      ],
-    };
+  props: {
+    navLogo: {
+      type: String,
+      require: true,
+    },
+    navMenu: {
+      type: Array,
+      require: true,
+    },
   },
 };
 </script>

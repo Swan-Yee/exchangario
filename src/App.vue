@@ -1,25 +1,28 @@
 <template>
-  <div>
-    <exchange-navbar />
-    <exchange-hero />
-    <exchange-list />
-    <exchange-pagination />
+  <div id="app">
+    <exchange-navbar :navLogo="navLogo" :navMenu="navMenu" />
+    <router-view />
   </div>
 </template>
 
 <script>
 import exchangeNavbar from "./components/exchangeNavbar.vue";
-import exchangeHero from "./components/exchangeHero.vue";
-import exchangeList from "./components/exchangeList.vue";
-import exchangePagination from "./components/exchangePagination.vue";
-
 export default {
   name: "App",
   components: {
     exchangeNavbar,
-    exchangeHero,
-    exchangeList,
-    exchangePagination,
+  },
+  data() {
+    return {
+      navLogo: "Exchangario",
+      navMenu: [
+        { item: "Home", link: "/" },
+        { item: "About", link: "/about" },
+        { item: "Faq", link: "/faq" },
+        { item: "Login", link: "/login" },
+        { item: "Register", link: "/register" },
+      ],
+    };
   },
 };
 </script>
