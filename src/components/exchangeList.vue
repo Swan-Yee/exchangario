@@ -53,10 +53,9 @@
 
 <script>
 export default {
-  props: {
-    exchanges: {
-      type: Array,
-      require: true,
+  computed: {
+    exchanges() {
+      return this.$store.state.exchanges;
     },
   },
 };
