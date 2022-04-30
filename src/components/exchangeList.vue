@@ -53,10 +53,15 @@
 
 <script>
 export default {
+  // Computed is to show reactive data
   computed: {
     exchanges() {
-      return this.$store.state.exchanges;
+      return this.$store.state.exchange.exchanges;
     },
+  },
+  // start work when program start run (run before created)
+  mounted() {
+    return this.$store.dispatch("exchange/getExchanges");
   },
 };
 </script>
