@@ -12,12 +12,12 @@ export default {
   // Actions like method but should not return **data**
   actions: {
     async getExchanges({ commit }) {
-      const query = query(collectionGroup(db, "exchanges"));
-      const snapshot = await getDocs(query);
+      // Get Data from FireBase
+      const exchangeQuery = query(collectionGroup(db, "exchanges"));
+      const snapshot = await getDocs(exchangeQuery);
 
       const exchanges = snapshot.docs.map((doc) => {
-        const data = doc.data();
-        return data;
+        return { id: doc.id, ...doc.data() };
       });
       commit("setExchanges", exchanges);
     },
